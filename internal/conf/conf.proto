@@ -1,0 +1,48 @@
+syntax = "proto3";
+package kratos.api;
+
+option go_package = "gpt-meeting-service/internal/conf;conf";
+
+import "google/protobuf/duration.proto";
+
+message Bootstrap {
+  Server server = 1;
+  Data data = 2;
+}
+
+message Server {
+  message HTTP {
+    string network = 1;
+    string addr = 2;
+    google.protobuf.Duration timeout = 3;
+  }
+  message GRPC {
+    string network = 1;
+    string addr = 2;
+    google.protobuf.Duration timeout = 3;
+  }
+  HTTP http = 1;
+  GRPC grpc = 2;
+}
+
+message Data {
+  message Mongo {
+    string host = 1;
+    string username = 2;
+    string password = 3;
+    int32 max_pool_size = 4;
+    int32 min_pool_size = 5;
+    google.protobuf.Duration connect_timeout = 6;
+    string dbname = 7;
+  }
+
+  message OpenAi {
+    string url = 1;
+    string apiKey = 2;
+    string model = 3;
+    float temperature = 4;
+    float presencePenalty = 5;
+  }
+  Mongo mongo = 1;
+  OpenAi openAi = 2;
+}

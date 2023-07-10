@@ -1,0 +1,21 @@
+server:
+  http:
+    addr: 0.0.0.0:8000
+    timeout: 1s
+  grpc:
+    addr: 0.0.0.0:9000
+    timeout: 1s
+data:
+  mongo:
+    host: 115.159.127.179:27017
+    username: root
+    password: passwd
+    max_pool_size: 20
+    min_pool_size: 5
+    connect_timeout: 2s
+    dbname: meeting
+  openAi:
+    apiKey: 
+    model: gpt-3.5-turbo-16k-0613
+    temperature: 0
+    presencePenalty: 0

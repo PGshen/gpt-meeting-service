@@ -1,0 +1,364 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: ""
+    version: 0.0.1
+paths:
+    /api/template/meeting:
+        get:
+            tags:
+                - Meeting
+            operationId: Meeting_ListMeeting
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: string
+                - name: name
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNum
+                  in: query
+                  schema:
+                    type: integer
+                    format: int64
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int64
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.template.v1.ListMeetingReply'
+        put:
+            tags:
+                - Meeting
+            operationId: Meeting_UpdateMeeting
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.template.v1.UpdateMeetingRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.template.v1.BoolReply'
+        post:
+            tags:
+                - Meeting
+            operationId: Meeting_CreateMeeting
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.template.v1.CreateMeetingRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.template.v1.BoolReply'
+        delete:
+            tags:
+                - Meeting
+            operationId: Meeting_DeleteMeeting
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.template.v1.BoolReply'
+    /api/template/meeting/{id}:
+        get:
+            tags:
+                - Meeting
+            operationId: Meeting_GetMeeting
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.template.v1.GetMeetingReply'
+    /api/template/role:
+        get:
+            tags:
+                - Role
+            operationId: Role_ListRole
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: string
+                - name: summary
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNum
+                  in: query
+                  schema:
+                    type: integer
+                    format: int64
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int64
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.template.v1.ListRoleReply'
+        put:
+            tags:
+                - Role
+            operationId: Role_UpdateRole
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.template.v1.UpdateRoleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.template.v1.BoolReply'
+        post:
+            tags:
+                - Role
+            operationId: Role_CreateRole
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.template.v1.CreateRoleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.template.v1.BoolReply'
+        delete:
+            tags:
+                - Role
+            operationId: Role_DeleteRole
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.template.v1.BoolReply'
+components:
+    schemas:
+        api.template.v1.BoolReply:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                msg:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/api.template.v1.BoolReply_Data'
+        api.template.v1.BoolReply_Data:
+            type: object
+            properties:
+                ok:
+                    type: boolean
+        api.template.v1.CreateMeetingRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+                avatar:
+                    type: string
+                description:
+                    type: string
+                example:
+                    type: string
+                templateFlow:
+                    type: string
+                templateData:
+                    type: string
+                createdBy:
+                    type: string
+        api.template.v1.CreateRoleRequest:
+            type: object
+            properties:
+                avatar:
+                    type: string
+                summary:
+                    type: string
+                description:
+                    type: string
+                example:
+                    type: string
+                createdBy:
+                    type: string
+        api.template.v1.GetMeetingReply:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int64
+                msg:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/api.template.v1.MeetingInfo'
+        api.template.v1.ListMeetingReply:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                msg:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/api.template.v1.ListMeetingReply_Data'
+        api.template.v1.ListMeetingReply_Data:
+            type: object
+            properties:
+                total:
+                    type: integer
+                    format: int64
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.template.v1.MeetingInfo'
+        api.template.v1.ListRoleReply:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                msg:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/api.template.v1.ListRoleReply_Data'
+        api.template.v1.ListRoleReply_Data:
+            type: object
+            properties:
+                total:
+                    type: integer
+                    format: int64
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.template.v1.RoleInfo'
+        api.template.v1.MeetingInfo:
+            type: object
+            properties:
+                id:
+                    type: string
+                name:
+                    type: string
+                avatar:
+                    type: string
+                description:
+                    type: string
+                example:
+                    type: string
+                templateFlow:
+                    type: string
+                templateData:
+                    type: string
+                starCount:
+                    type: integer
+                    format: int64
+                createdBy:
+                    type: string
+                createdTime:
+                    type: integer
+                    format: int64
+        api.template.v1.RoleInfo:
+            type: object
+            properties:
+                id:
+                    type: string
+                avatar:
+                    type: string
+                summary:
+                    type: string
+                description:
+                    type: string
+                example:
+                    type: string
+                starCount:
+                    type: integer
+                    format: int64
+                createdBy:
+                    type: string
+                createdTime:
+                    type: integer
+                    format: int64
+        api.template.v1.UpdateMeetingRequest:
+            type: object
+            properties:
+                id:
+                    type: string
+                name:
+                    type: string
+                avatar:
+                    type: string
+                description:
+                    type: string
+                example:
+                    type: string
+                templateFlow:
+                    type: string
+                templateData:
+                    type: string
+        api.template.v1.UpdateRoleRequest:
+            type: object
+            properties:
+                id:
+                    type: string
+                avatar:
+                    type: string
+                summary:
+                    type: string
+                description:
+                    type: string
+                example:
+                    type: string
+tags:
+    - name: Meeting
+    - name: Role

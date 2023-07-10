@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package api.template.v1;
+
+option go_package = "gpt-meeting-service/api/template/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.template.v1";
+
+
+message BoolReply {
+	int32 code = 1;
+	string msg = 2;
+	Data data = 3;
+
+	message Data {
+		bool ok = 1;
+	}
+}

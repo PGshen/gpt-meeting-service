@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package api.template.v1;
+
+import "google/api/annotations.proto";
+import "template/v1/common.proto";
+
+option go_package = "gpt-meeting-service/api/template/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.template.v1";
+
+service Role {
+	rpc CreateRole (CreateRoleRequest) returns (BoolReply) {
+		option(google.api.http) = {
+			post: "/api/template/role",
+			body: "*"
+		};
+	}
+	rpc UpdateRole (UpdateRoleRequest) returns (BoolReply) {
+		option(google.api.http) = {
+			put: "/api/template/role",
+			body: "*"
+		};
+	}
+	rpc DeleteRole (DeleteRoleRequest) returns (BoolReply) {
+		option(google.api.http) = {
+			delete: "/api/template/role"
+		};
+	}
+	rpc ListRole (ListRoleRequest) returns (ListRoleReply) {
+		option(google.api.http) = {
+			get: "/api/template/role"
+		};
+	}
+}
+
+
+message RoleInfo {
+	string id = 1;
+	string avatar = 2;
+	string summary = 3;
+	string description = 4;
+	string example = 5;
+	int64 starCount = 6;
+	string createdBy = 7;
+	int64 createdTime = 8;
+}
+
+message CreateRoleRequest {
+	string avatar = 1;
+	string summary = 2;
+	string description = 3;
+	string example = 4;
+	string createdBy = 5;
+}
+
+message UpdateRoleRequest {
+	string id = 1;
+	string avatar = 2;
+	string summary = 3;
+	string description = 4;
+	string example = 5;
+}
+
+message DeleteRoleRequest {
+	string id = 1;
+}
+
+message ListRoleRequest {
+	string id = 1;
+	string summary = 2;
+	int64 pageNum = 3;
+	int64 pageSize = 4;
+}
+
+message ListRoleReply {
+	int32 code = 1;
+	string msg = 2;
+	Data data = 3;
+
+	message Data {
+		int64 total = 1;
+		repeated RoleInfo data = 2;
+	}
+}

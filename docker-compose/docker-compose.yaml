@@ -1,0 +1,40 @@
+version: '3'
+services:
+  gpt-meeting-service:
+    container_name: service
+    image: gpt-meeting-service:v1
+    ports:
+      - 8000:8000
+    volumes:
+      - ./conf:/data/conf
+    depends_on:
+      - mongodb
+    networks:
+      - meeting-network
+
+  meeting-web:
+    container_name: web
+    image: meeting-web:v1
+    ports:
+      - 8080:8080
+    depends_on:
+      - gpt-meeting-service
+    networks:
+      - meeting-network
+
+  mongodb:
+    image: mongo
+    container_name: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: passwd
+    networks:
+      - meeting-network
+
+networks:
+  meeting-network:

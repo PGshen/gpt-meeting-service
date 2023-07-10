@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+package api.template.v1;
+
+import "google/api/annotations.proto";
+import "template/v1/common.proto";
+
+option go_package = "gpt-meeting-service/api/template/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.template.v1";
+
+service Meeting {
+	rpc CreateMeeting (CreateMeetingRequest) returns (BoolReply) {
+		option(google.api.http) = {
+			post: "/api/template/meeting",
+			body: "*"
+		};
+	}
+	rpc UpdateMeeting (UpdateMeetingRequest) returns (BoolReply) {
+		option(google.api.http) = {
+			put: "/api/template/meeting",
+			body: "*"
+		};
+	}
+	rpc DeleteMeeting (DeleteMeetingRequest) returns (BoolReply) {
+		option(google.api.http) = {
+			delete: "/api/template/meeting",
+		};
+	}
+	rpc GetMeeting (GetMeetingRequest) returns (GetMeetingReply) {
+		option(google.api.http) = {
+			get: "/api/template/meeting/{id}",
+		};
+	}
+	rpc ListMeeting (ListMeetingRequest) returns (ListMeetingReply) {
+		option(google.api.http) = {
+			get: "/api/template/meeting",
+		};
+	}
+}
+
+message CreateMeetingRequest {
+	string name = 1;
+	string avatar = 2;
+	string description = 3;
+	string example = 4;
+	string templateFlow = 5;
+	string templateData = 6;
+	string createdBy = 7;
+}
+
+message UpdateMeetingRequest {
+	string id = 1;
+	string name = 2;
+	string avatar = 3;
+	string description = 4;
+	string example = 5;
+	string templateFlow = 6;
+	string templateData = 7;
+}
+
+message DeleteMeetingRequest {
+	string id = 1;
+}
+
+message MeetingInfo {
+	string id = 1;
+	string name = 2;
+	string avatar = 3;
+	string description = 4;
+	string example = 5;
+	string templateFlow = 6;
+	string templateData = 7;
+	int64 starCount = 8;
+	string createdBy = 9;
+	int64 createdTime = 10;
+}
+
+message GetMeetingRequest {
+	string id = 1;
+}
+message GetMeetingReply {
+	int64 code = 1;
+	string msg = 2;
+	MeetingInfo data = 3;
+}
+
+message ListMeetingRequest {
+	string id = 1;
+	string name = 2;
+	int64 pageNum = 3;
+	int64 pageSize = 4;
+}
+message ListMeetingReply {
+	int32 code = 1;
+	string msg = 2;
+	Data data = 3;
+
+	message Data {
+		int64 total = 1;
+		repeated MeetingInfo data = 2;
+	}
+}
+
+

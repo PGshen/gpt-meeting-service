@@ -1,0 +1,308 @@
+[
+  {
+    "_id": "64aab7177c7fcea63a14152f",
+    "avatar": "https://image-1252487584.cos.ap-nanjing.myqcloud.com/meeting/1688909250918339.jpg",
+    "createdBy": "皮皮虾呀",
+    "createdTime": 1688909591,
+    "description": "根据给定的主题和目标进行联想，快速获得相关的想法",
+    "example": "创意头脑风暴",
+    "name": "快速联想",
+    "starCount": 0,
+    "templateData": "{\"5d28f5b2-ece0-4694-9fe5-5ad5476fdbdf\":{\"id\":\"5d28f5b2-ece0-4694-9fe5-5ad5476fdbdf\",\"nodeType\":\"Input\",\"nodeName\":\"主题\u0026目标确认\",\"characters\":\"64aa79973142999d8696ebbd\",\"optimizationPrompt\":\"对用户输入的主题目标进行优化\"},\"ba923d60-0aaf-462b-b079-f84aca15ad53\":{\"id\":\"ba923d60-0aaf-462b-b079-f84aca15ad53\",\"nodeType\":\"Thinking\",\"nodeName\":\"快速联想\",\"characters\":\"64aa852f3142999d8696ebc2\",\"associationCharacters\":\"64aa79ff3142999d8696ebbe\",\"quizCharacters\":\"64aa89bc3142999d8696ebc3\",\"prologuePrompt\":\"围绕主题和目标，进行深度思考，写下5个想法\",\"quizPrompt\":\"围绕主题和目标，结合前面上下文，提出一个最相关的问题\",\"quizRound\":3,\"quizNum\":2,\"summaryPrompt\":\"围绕主题和目标，抓住重点，提炼概要\"},\"49c07ff2-77d9-4308-8223-0ceef04711ac\":{\"id\":\"49c07ff2-77d9-4308-8223-0ceef04711ac\",\"nodeType\":\"Output\",\"nodeName\":\"结论输出\",\"characters\":\"64aa852f3142999d8696ebc2\",\"summaryPrompt\":\"围绕主题和目标，按照正式的会议记录格式输出本次讨论会的结论\"}}",
+    "templateFlow": "{\"cells\":[{\"shape\":\"data-edge\",\"connector\":{\"name\":\"curveConnector\"},\"id\":\"35ee0ef8-1605-47f0-8e21-2ab3f2bedf75\",\"zIndex\":-1,\"source\":{\"cell\":\"5d28f5b2-ece0-4694-9fe5-5ad5476fdbdf\",\"port\":\"input-out\"},\"target\":{\"cell\":\"ba923d60-0aaf-462b-b079-f84aca15ad53\",\"port\":\"thinking-in\"}},{\"shape\":\"data-edge\",\"connector\":{\"name\":\"curveConnector\"},\"id\":\"cda12094-97aa-438e-9721-42965d7773b5\",\"zIndex\":-1,\"source\":{\"cell\":\"ba923d60-0aaf-462b-b079-f84aca15ad53\",\"port\":\"thinking-out\"},\"target\":{\"cell\":\"49c07ff2-77d9-4308-8223-0ceef04711ac\",\"port\":\"output-in\"}},{\"position\":{\"x\":120,\"y\":140},\"size\":{\"width\":150,\"height\":96},\"view\":\"vue-shape-view\",\"shape\":\"data-node\",\"ports\":{\"groups\":{\"in\":{\"position\":\"left\",\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}},\"out\":{\"position\":{\"name\":\"right\"},\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}}},\"items\":[{\"id\":\"input-out\",\"group\":\"out\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}}]},\"id\":\"5d28f5b2-ece0-4694-9fe5-5ad5476fdbdf\",\"data\":{\"nodeType\":\"Input\",\"logoUrl\":\"./input.svg\",\"nodeName\":\"主题输入\",\"description\":\"设定本次讨论的主题和目标\"},\"zIndex\":1},{\"position\":{\"x\":439,\"y\":140},\"size\":{\"width\":150,\"height\":96},\"view\":\"vue-shape-view\",\"shape\":\"data-node\",\"ports\":{\"groups\":{\"in\":{\"position\":\"left\",\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}},\"out\":{\"position\":{\"name\":\"right\"},\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}}},\"items\":[{\"id\":\"thinking-in\",\"group\":\"in\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}},{\"id\":\"thinking-out\",\"group\":\"out\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}}]},\"id\":\"ba923d60-0aaf-462b-b079-f84aca15ad53\",\"data\":{\"nodeType\":\"Thinking\",\"logoUrl\":\"./thinking.svg\",\"nodeName\":\"联想思考\",\"description\":\"不同角度,向不同方向,用不同方法或途径进行分析和提出方案\"},\"zIndex\":2},{\"position\":{\"x\":730,\"y\":140},\"size\":{\"width\":150,\"height\":96},\"view\":\"vue-shape-view\",\"shape\":\"data-node\",\"ports\":{\"groups\":{\"in\":{\"position\":\"left\",\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}},\"out\":{\"position\":{\"name\":\"right\"},\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}}},\"items\":[{\"id\":\"output-in\",\"group\":\"in\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}}]},\"id\":\"49c07ff2-77d9-4308-8223-0ceef04711ac\",\"data\":{\"nodeType\":\"Output\",\"logoUrl\":\"./output.svg\",\"nodeName\":\"结论输出\",\"description\":\"根据讨论的结果,输出最终的结论\"},\"zIndex\":3}]}",
+    "templateGraph": {
+      "nodes": [
+        {
+          "data": {
+            "_id": "5d28f5b2-ece0-4694-9fe5-5ad5476fdbdf",
+            "characters": {
+              "description": "一个善于收集、整理和分析信息的专家。擅长提供有关事实、数据和背景信息，以支持决策和解决问题。",
+              "memberName": "信息分析（白色）",
+              "memeberId": "ObjectID(\"64aa79973142999d8696ebbd\")"
+            },
+            "nodeName": "主题\u0026目标确认",
+            "nodeType": "Input",
+            "optimizationPrompt": "对用户输入的主题目标进行优化"
+          },
+          "inDegree": 0,
+          "neighbors": [
+            "ba923d60-0aaf-462b-b079-f84aca15ad53"
+          ],
+          "outDegree": 1
+        },
+        {
+          "data": {
+            "_id": "ba923d60-0aaf-462b-b079-f84aca15ad53",
+            "associationCharacters": {
+              "description": "一个具有创造力和创新思维的人。能够提供新颖的思路、解决方案和创意，并激发团队的创造力。",
+              "memberName": "创造性思维（绿色）",
+              "memeberId": "ObjectID(\"64aa79ff3142999d8696ebbe\")"
+            },
+            "characters": {
+              "description": "一个客观中立，只关注于提炼和整理信息，而不陷入偏见的人。具有出色的信息整理和提炼能力，能够根据给定的要求和目标捕捉会议讨论的重点，并将其整理成清晰、简洁的形式。",
+              "memberName": "信息总结（灰色）",
+              "memeberId": "ObjectID(\"64aa852f3142999d8696ebc2\")"
+            },
+            "nodeName": "快速联想",
+            "nodeType": "Thinking",
+            "prologuePrompt": "围绕主题和目标，进行深度思考，写下5个想法",
+            "quizCharacters": {
+              "description": "一个具备洞察能力的人，擅长通过提问帮助澄清问题，能够从不同角度思考问题，并提出有针对性的问题，帮助拓展思路。",
+              "memberName": "提问（橙色）",
+              "memeberId": "ObjectID(\"64aa89bc3142999d8696ebc3\")"
+            },
+            "quizNum": 2,
+            "quizPrompt": "围绕主题和目标，结合前面上下文，提出一个最相关的问题",
+            "quizRound": 3,
+            "summaryPrompt": "围绕主题和目标，抓住重点，提炼概要"
+          },
+          "inDegree": 1,
+          "neighbors": [
+            "49c07ff2-77d9-4308-8223-0ceef04711ac"
+          ],
+          "outDegree": 1
+        },
+        {
+          "data": {
+            "_id": "49c07ff2-77d9-4308-8223-0ceef04711ac",
+            "characters": {
+              "description": "一个客观中立，只关注于提炼和整理信息，而不陷入偏见的人。具有出色的信息整理和提炼能力，能够根据给定的要求和目标捕捉会议讨论的重点，并将其整理成清晰、简洁的形式。",
+              "memberName": "信息总结（灰色）",
+              "memeberId": "ObjectID(\"64aa852f3142999d8696ebc2\")"
+            },
+            "nodeName": "结论输出",
+            "nodeType": "Output",
+            "summaryPrompt": "围绕主题和目标，按照正式的会议记录格式输出本次讨论会的结论"
+          },
+          "inDegree": 1,
+          "neighbors": [],
+          "outDegree": 0
+        }
+      ]
+    }
+  },
+  {
+    "_id": "64aacb187c7fcea63a141530",
+    "avatar": "https://image-1252487584.cos.ap-nanjing.myqcloud.com/meeting/1688914327066428.jpg",
+    "createdBy": "皮皮虾呀",
+    "createdTime": 1688914712,
+    "description": "就某一个想法迅速作出评价",
+    "example": "产品功能评估",
+    "name": "快速评估",
+    "starCount": 0,
+    "templateData": "{\"d79a99fd-8f3a-44e6-a8eb-9fd86140febd\":{\"id\":\"d79a99fd-8f3a-44e6-a8eb-9fd86140febd\",\"nodeType\":\"Input\",\"nodeName\":\"输入待评估想法\",\"characters\":\"64aa79973142999d8696ebbd\",\"optimizationPrompt\":\"对输入的想法进行优化完善\"},\"b95d7dc7-5184-4ac6-ab0d-3a3fdc799cef\":{\"id\":\"b95d7dc7-5184-4ac6-ab0d-3a3fdc799cef\",\"nodeType\":\"Discussion\",\"memberIds\":[\"64aa7b0d3142999d8696ebbf\",\"64aa7ba33142999d8696ebc0\",\"64aa7c873142999d8696ebc1\"],\"nodeName\":\"想法评估\",\"characters\":\"64aa852f3142999d8696ebc2\",\"prologuePrompt\":\"对想法做出符合自己风格的评价\",\"replyRound\":1,\"summaryPrompt\":\"总结各成员对想法的评价\"},\"619aecf8-c4fb-48c3-941a-f027afef6c38\":{\"id\":\"619aecf8-c4fb-48c3-941a-f027afef6c38\",\"nodeType\":\"Output\",\"nodeName\":\"结论输出\",\"characters\":\"64aa852f3142999d8696ebc2\",\"summaryPrompt\":\"总结讨论要点，按会议文档格式输出一份文档\"}}",
+    "templateFlow": "{\"cells\":[{\"shape\":\"data-edge\",\"connector\":{\"name\":\"curveConnector\"},\"id\":\"f521da7c-6778-40e6-b0a6-46f3bab286cf\",\"zIndex\":-1,\"source\":{\"cell\":\"d79a99fd-8f3a-44e6-a8eb-9fd86140febd\",\"port\":\"input-out\"},\"target\":{\"cell\":\"b95d7dc7-5184-4ac6-ab0d-3a3fdc799cef\",\"port\":\"discussion-in\"}},{\"shape\":\"data-edge\",\"connector\":{\"name\":\"curveConnector\"},\"id\":\"bbc96660-9d6d-4d8a-8323-e7b15dbbfd94\",\"zIndex\":-1,\"source\":{\"cell\":\"b95d7dc7-5184-4ac6-ab0d-3a3fdc799cef\",\"port\":\"discussion-out\"},\"target\":{\"cell\":\"619aecf8-c4fb-48c3-941a-f027afef6c38\",\"port\":\"output-in\"}},{\"position\":{\"x\":140,\"y\":210},\"size\":{\"width\":150,\"height\":96},\"view\":\"vue-shape-view\",\"shape\":\"data-node\",\"ports\":{\"groups\":{\"in\":{\"position\":\"left\",\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}},\"out\":{\"position\":{\"name\":\"right\"},\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}}},\"items\":[{\"id\":\"input-out\",\"group\":\"out\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}}]},\"id\":\"d79a99fd-8f3a-44e6-a8eb-9fd86140febd\",\"data\":{\"nodeType\":\"Input\",\"logoUrl\":\"./input.svg\",\"nodeName\":\"主题输入\",\"description\":\"设定本次讨论的主题和目标\"},\"zIndex\":1},{\"position\":{\"x\":421,\"y\":210},\"size\":{\"width\":150,\"height\":96},\"view\":\"vue-shape-view\",\"shape\":\"data-node\",\"ports\":{\"groups\":{\"in\":{\"position\":\"left\",\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}},\"out\":{\"position\":{\"name\":\"right\"},\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}}},\"items\":[{\"id\":\"discussion-in\",\"group\":\"in\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}},{\"id\":\"discussion-out\",\"group\":\"out\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}}]},\"id\":\"b95d7dc7-5184-4ac6-ab0d-3a3fdc799cef\",\"data\":{\"nodeType\":\"Discussion\",\"logoUrl\":\"./discussion.svg\",\"nodeName\":\"主题讨论\",\"description\":\"围绕主题和目标进行讨论\"},\"zIndex\":2},{\"position\":{\"x\":731,\"y\":210},\"size\":{\"width\":150,\"height\":96},\"view\":\"vue-shape-view\",\"shape\":\"data-node\",\"ports\":{\"groups\":{\"in\":{\"position\":\"left\",\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}},\"out\":{\"position\":{\"name\":\"right\"},\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}}},\"items\":[{\"id\":\"output-in\",\"group\":\"in\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}}]},\"id\":\"619aecf8-c4fb-48c3-941a-f027afef6c38\",\"data\":{\"nodeType\":\"Output\",\"logoUrl\":\"./output.svg\",\"nodeName\":\"结论输出\",\"description\":\"根据讨论的结果,输出最终的结论\"},\"zIndex\":3}]}",
+    "templateGraph": {
+      "nodes": [
+        {
+          "data": {
+            "_id": "d79a99fd-8f3a-44e6-a8eb-9fd86140febd",
+            "characters": {
+              "description": "一个善于收集、整理和分析信息的专家。擅长提供有关事实、数据和背景信息，以支持决策和解决问题。",
+              "memberName": "信息分析（白色）",
+              "memeberId": "ObjectID(\"64aa79973142999d8696ebbd\")"
+            },
+            "nodeName": "输入待评估想法",
+            "nodeType": "Input",
+            "optimizationPrompt": "对输入的想法进行优化完善"
+          },
+          "inDegree": 0,
+          "neighbors": [
+            "b95d7dc7-5184-4ac6-ab0d-3a3fdc799cef"
+          ],
+          "outDegree": 1
+        },
+        {
+          "data": {
+            "_id": "b95d7dc7-5184-4ac6-ab0d-3a3fdc799cef",
+            "characters": {
+              "description": "一个客观中立，只关注于提炼和整理信息，而不陷入偏见的人。具有出色的信息整理和提炼能力，能够根据给定的要求和目标捕捉会议讨论的重点，并将其整理成清晰、简洁的形式。",
+              "memberName": "信息总结（灰色）",
+              "memeberId": "ObjectID(\"64aa852f3142999d8696ebc2\")"
+            },
+            "memberList": [
+              {
+                "description": "一个极富情感和直觉的人。非常关注团队成员的情感和意见，能够提供真实的、直观的反馈和洞察力。",
+                "memberName": "情感直觉（红色）",
+                "memeberId": "ObjectID(\"64aa7b0d3142999d8696ebbf\")"
+              },
+              {
+                "description": "一个积极、乐观的人。能够看到问题的优点和积极的解决方案，并鼓励团队朝着积极的方向思考。",
+                "memberName": "积极建设（黄色）",
+                "memeberId": "ObjectID(\"64aa7ba33142999d8696ebc0\")"
+              },
+              {
+                "description": "一个善于批判性思考的人。能够提出挑战和反对意见，以确保团队能够评估各种可能性并做出明智的决策。",
+                "memberName": "批判思维（黑色）",
+                "memeberId": "ObjectID(\"64aa7c873142999d8696ebc1\")"
+              }
+            ],
+            "nodeName": "想法评估",
+            "nodeType": "Discussion",
+            "prologuePrompt": "对想法做出符合自己风格的评价",
+            "replyRound": 1,
+            "summaryPrompt": "总结各成员对想法的评价"
+          },
+          "inDegree": 1,
+          "neighbors": [
+            "619aecf8-c4fb-48c3-941a-f027afef6c38"
+          ],
+          "outDegree": 1
+        },
+        {
+          "data": {
+            "_id": "619aecf8-c4fb-48c3-941a-f027afef6c38",
+            "characters": {
+              "description": "一个客观中立，只关注于提炼和整理信息，而不陷入偏见的人。具有出色的信息整理和提炼能力，能够根据给定的要求和目标捕捉会议讨论的重点，并将其整理成清晰、简洁的形式。",
+              "memberName": "信息总结（灰色）",
+              "memeberId": "ObjectID(\"64aa852f3142999d8696ebc2\")"
+            },
+            "nodeName": "结论输出",
+            "nodeType": "Output",
+            "summaryPrompt": "总结讨论要点，按会议文档格式输出一份文档"
+          },
+          "inDegree": 1,
+          "neighbors": [],
+          "outDegree": 0
+        }
+      ]
+    }
+  },
+  {
+    "_id": "64aad2367c7fcea63a141531",
+    "avatar": "https://image-1252487584.cos.ap-nanjing.myqcloud.com/meeting/1688916262493957.jpg",
+    "createdBy": "皮皮虾呀",
+    "createdTime": 1688916534,
+    "description": "跨越时空的对话，邀请不同时空的人物一起对话",
+    "example": "牛顿、爱因斯坦一起讨论物理学",
+    "name": "跨时空对话",
+    "starCount": 0,
+    "templateData": "{\"a77d090a-87b1-42ba-b3c0-61e27259b441\":{\"id\":\"a77d090a-87b1-42ba-b3c0-61e27259b441\",\"nodeType\":\"Discussion\",\"memberIds\":[\"64aa9f393142999d8696ebc4\",\"64aa9f883142999d8696ebc5\",\"64aaa07c3142999d8696ebc7\"],\"nodeName\":\"一起对话\",\"characters\":\"64aa852f3142999d8696ebc2\",\"prologuePrompt\":\"围绕主题发表自己的观点，或者对其他成员的观点进行议论\",\"replyRound\":3,\"summaryPrompt\":\"围绕主题，概要总结各个成员的观点\"},\"81724b57-0dd9-4cf4-b994-7898c8fed268\":{\"id\":\"81724b57-0dd9-4cf4-b994-7898c8fed268\",\"nodeType\":\"Input\",\"nodeName\":\"主题确认\",\"characters\":\"64aa79973142999d8696ebbd\",\"optimizationPrompt\":\"对输出进行完善优化\"},\"f4591baf-fce4-4cbb-b6fd-0687d7a1cf23\":{\"id\":\"f4591baf-fce4-4cbb-b6fd-0687d7a1cf23\",\"nodeType\":\"Output\",\"nodeName\":\"对话结论\",\"characters\":\"64aa852f3142999d8696ebc2\",\"summaryPrompt\":\"围绕主题，总结整个对话过程以及各个成员的观点\"}}",
+    "templateFlow": "{\"cells\":[{\"shape\":\"data-edge\",\"connector\":{\"name\":\"curveConnector\"},\"id\":\"10ba0522-3838-4c30-9599-a44a83669922\",\"zIndex\":-1,\"source\":{\"cell\":\"81724b57-0dd9-4cf4-b994-7898c8fed268\",\"port\":\"input-out\"},\"target\":{\"cell\":\"a77d090a-87b1-42ba-b3c0-61e27259b441\",\"port\":\"discussion-in\"}},{\"shape\":\"data-edge\",\"connector\":{\"name\":\"curveConnector\"},\"id\":\"f324dd6f-ec42-476c-9302-3ba255021197\",\"zIndex\":-1,\"source\":{\"cell\":\"a77d090a-87b1-42ba-b3c0-61e27259b441\",\"port\":\"discussion-out\"},\"target\":{\"cell\":\"f4591baf-fce4-4cbb-b6fd-0687d7a1cf23\",\"port\":\"output-in\"}},{\"position\":{\"x\":470,\"y\":310},\"size\":{\"width\":150,\"height\":96},\"view\":\"vue-shape-view\",\"shape\":\"data-node\",\"ports\":{\"groups\":{\"in\":{\"position\":\"left\",\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}},\"out\":{\"position\":{\"name\":\"right\"},\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}}},\"items\":[{\"id\":\"discussion-in\",\"group\":\"in\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}},{\"id\":\"discussion-out\",\"group\":\"out\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}}]},\"id\":\"a77d090a-87b1-42ba-b3c0-61e27259b441\",\"data\":{\"nodeType\":\"Discussion\",\"logoUrl\":\"./discussion.svg\",\"nodeName\":\"主题讨论\",\"description\":\"围绕主题和目标进行讨论\"},\"zIndex\":1},{\"position\":{\"x\":120,\"y\":310},\"size\":{\"width\":150,\"height\":96},\"view\":\"vue-shape-view\",\"shape\":\"data-node\",\"ports\":{\"groups\":{\"in\":{\"position\":\"left\",\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}},\"out\":{\"position\":{\"name\":\"right\"},\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}}},\"items\":[{\"id\":\"input-out\",\"group\":\"out\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}}]},\"id\":\"81724b57-0dd9-4cf4-b994-7898c8fed268\",\"data\":{\"nodeType\":\"Input\",\"logoUrl\":\"./input.svg\",\"nodeName\":\"主题输入\",\"description\":\"设定本次讨论的主题和目标\"},\"zIndex\":2},{\"position\":{\"x\":808,\"y\":310},\"size\":{\"width\":150,\"height\":96},\"view\":\"vue-shape-view\",\"shape\":\"data-node\",\"ports\":{\"groups\":{\"in\":{\"position\":\"left\",\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}},\"out\":{\"position\":{\"name\":\"right\"},\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}}},\"items\":[{\"id\":\"output-in\",\"group\":\"in\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}}]},\"id\":\"f4591baf-fce4-4cbb-b6fd-0687d7a1cf23\",\"data\":{\"nodeType\":\"Output\",\"logoUrl\":\"./output.svg\",\"nodeName\":\"结论输出\",\"description\":\"根据讨论的结果,输出最终的结论\"},\"zIndex\":3}]}",
+    "templateGraph": {
+      "nodes": [
+        {
+          "data": {
+            "_id": "a77d090a-87b1-42ba-b3c0-61e27259b441",
+            "characters": {
+              "description": "一个客观中立，只关注于提炼和整理信息，而不陷入偏见的人。具有出色的信息整理和提炼能力，能够根据给定的要求和目标捕捉会议讨论的重点，并将其整理成清晰、简洁的形式。",
+              "memberName": "信息总结（灰色）",
+              "memeberId": "ObjectID(\"64aa852f3142999d8696ebc2\")"
+            },
+            "memberList": [
+              {
+                "description": "牛顿，是古典物理学的奠基人之一，提出了万有引力定律和运动定律。作为自然哲学家、数学家和天文学家，他对光学、微积分和多个领域的研究都具有重要影响。",
+                "memberName": "艾萨克·牛顿",
+                "memeberId": "ObjectID(\"64aa9f393142999d8696ebc4\")"
+              },
+              {
+                "description": "爱因斯坦，是现代物理学的重要人物，提出了相对论和光量子假说，并为量子力学的发展做出了重要贡献。",
+                "memberName": "阿尔伯特·爱因斯坦",
+                "memeberId": "ObjectID(\"64aa9f883142999d8696ebc5\")"
+              },
+              {
+                "description": "波尔，丹麦物理学家，提出了原子结构的量子力学模型，以及有关波粒二象性的共振论原理。为理解原子核结构做出了重要贡献，并发展了量子理论中的互补性原理。",
+                "memberName": "尤尔根·尼尔斯·波尔",
+                "memeberId": "ObjectID(\"64aaa07c3142999d8696ebc7\")"
+              }
+            ],
+            "nodeName": "一起对话",
+            "nodeType": "Discussion",
+            "prologuePrompt": "围绕主题发表自己的观点，或者对其他成员的观点进行议论",
+            "replyRound": 3,
+            "summaryPrompt": "围绕主题，概要总结各个成员的观点"
+          },
+          "inDegree": 1,
+          "neighbors": [
+            "f4591baf-fce4-4cbb-b6fd-0687d7a1cf23"
+          ],
+          "outDegree": 1
+        },
+        {
+          "data": {
+            "_id": "81724b57-0dd9-4cf4-b994-7898c8fed268",
+            "characters": {
+              "description": "一个善于收集、整理和分析信息的专家。擅长提供有关事实、数据和背景信息，以支持决策和解决问题。",
+              "memberName": "信息分析（白色）",
+              "memeberId": "ObjectID(\"64aa79973142999d8696ebbd\")"
+            },
+            "nodeName": "主题确认",
+            "nodeType": "Input",
+            "optimizationPrompt": "对输出进行完善优化"
+          },
+          "inDegree": 0,
+          "neighbors": [
+            "a77d090a-87b1-42ba-b3c0-61e27259b441"
+          ],
+          "outDegree": 1
+        },
+        {
+          "data": {
+            "_id": "f4591baf-fce4-4cbb-b6fd-0687d7a1cf23",
+            "characters": {
+              "description": "一个客观中立，只关注于提炼和整理信息，而不陷入偏见的人。具有出色的信息整理和提炼能力，能够根据给定的要求和目标捕捉会议讨论的重点，并将其整理成清晰、简洁的形式。",
+              "memberName": "信息总结（灰色）",
+              "memeberId": "ObjectID(\"64aa852f3142999d8696ebc2\")"
+            },
+            "nodeName": "对话结论",
+            "nodeType": "Output",
+            "summaryPrompt": "围绕主题，总结整个对话过程以及各个成员的观点"
+          },
+          "inDegree": 1,
+          "neighbors": [],
+          "outDegree": 0
+        }
+      ]
+    }
+  },
+  {
+    "_id": "64aad45e7c7fcea63a141532",
+    "avatar": "https://image-1252487584.cos.ap-nanjing.myqcloud.com/meeting/1688917078520768.jpg",
+    "createdBy": "皮皮虾呀",
+    "createdTime": 1688917086,
+    "description": "基于给定的背景，想出一个主意",
+    "example": "智能手表的续航如何确保",
+    "name": "出主意",
+    "starCount": 0,
+    "templateData": "{\"a2f2c80f-0740-4d82-ba5f-07402958f038\":{\"id\":\"a2f2c80f-0740-4d82-ba5f-07402958f038\",\"nodeType\":\"Processing\",\"nodeName\":\"出主意\",\"characters\":\"64aa79ff3142999d8696ebbe\",\"processingPrompt\":\"根据前面提供的背景和问题，提出你的解决方案或想法\"},\"1aa4de50-a665-42a0-a09b-087472302637\":{\"id\":\"1aa4de50-a665-42a0-a09b-087472302637\",\"nodeType\":\"Input\",\"nodeName\":\"背景\u0026问题确认\",\"characters\":\"64aa79973142999d8696ebbd\",\"optimizationPrompt\":\"对用户输入的背景和问题进行完善优化\"}}",
+    "templateFlow": "{\"cells\":[{\"shape\":\"data-edge\",\"connector\":{\"name\":\"curveConnector\"},\"id\":\"bd658631-ad9c-40ee-b5f4-bb2a6837716a\",\"zIndex\":-1,\"source\":{\"cell\":\"1aa4de50-a665-42a0-a09b-087472302637\",\"port\":\"input-out\"},\"target\":{\"cell\":\"a2f2c80f-0740-4d82-ba5f-07402958f038\",\"port\":\"processing-in\"}},{\"position\":{\"x\":460,\"y\":200},\"size\":{\"width\":150,\"height\":96},\"view\":\"vue-shape-view\",\"shape\":\"data-node\",\"ports\":{\"groups\":{\"in\":{\"position\":\"left\",\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}},\"out\":{\"position\":{\"name\":\"right\"},\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}}},\"items\":[{\"id\":\"processing-in\",\"group\":\"in\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}},{\"id\":\"processing-out\",\"group\":\"out\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}}]},\"id\":\"a2f2c80f-0740-4d82-ba5f-07402958f038\",\"data\":{\"nodeType\":\"Processing\",\"logoUrl\":\"./common.svg\",\"nodeName\":\"通用处理\",\"description\":\"通用处理,按prompt对内容进行回答\"},\"zIndex\":1},{\"position\":{\"x\":156,\"y\":200},\"size\":{\"width\":150,\"height\":96},\"view\":\"vue-shape-view\",\"shape\":\"data-node\",\"ports\":{\"groups\":{\"in\":{\"position\":\"left\",\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}},\"out\":{\"position\":{\"name\":\"right\"},\"attrs\":{\"circle\":{\"r\":4,\"magnet\":true,\"stroke\":\"transparent\",\"strokeWidth\":1,\"fill\":\"transparent\"}}}},\"items\":[{\"id\":\"input-out\",\"group\":\"out\",\"attrs\":{\"circle\":{\"fill\":\"transparent\",\"stroke\":\"transparent\"}}}]},\"id\":\"1aa4de50-a665-42a0-a09b-087472302637\",\"data\":{\"nodeType\":\"Input\",\"logoUrl\":\"./input.svg\",\"nodeName\":\"主题输入\",\"description\":\"设定本次讨论的主题和目标\"},\"zIndex\":2}]}",
+    "templateGraph": {
+      "nodes": [
+        {
+          "data": {
+            "_id": "a2f2c80f-0740-4d82-ba5f-07402958f038",
+            "characters": {
+              "description": "一个具有创造力和创新思维的人。能够提供新颖的思路、解决方案和创意，并激发团队的创造力。",
+              "memberName": "创造性思维（绿色）",
+              "memeberId": "ObjectID(\"64aa79ff3142999d8696ebbe\")"
+            },
+            "nodeName": "出主意",
+            "nodeType": "Processing",
+            "processingPrompt": "根据前面提供的背景和问题，提出你的解决方案或想法"
+          },
+          "inDegree": 1,
+          "neighbors": [],
+          "outDegree": 0
+        },
+        {
+          "data": {
+            "_id": "1aa4de50-a665-42a0-a09b-087472302637",
+            "characters": {
+              "description": "一个善于收集、整理和分析信息的专家。擅长提供有关事实、数据和背景信息，以支持决策和解决问题。",
+              "memberName": "信息分析（白色）",
+              "memeberId": "ObjectID(\"64aa79973142999d8696ebbd\")"
+            },
+            "nodeName": "背景\u0026问题确认",
+            "nodeType": "Input",
+            "optimizationPrompt": "对用户输入的背景和问题进行完善优化"
+          },
+          "inDegree": 0,
+          "neighbors": [
+            "a2f2c80f-0740-4d82-ba5f-07402958f038"
+          ],
+          "outDegree": 1
+        }
+      ]
+    }
+  }
+]
