@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-05-24 22:39:01
- * @LastEditors: peng pgs1108pgs@126.com
- * @LastEditTime: 2023-07-09 21:13:21
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2023-07-12 21:27:04
  * @FilePath: /gpt-meeting-service/internal/biz/meeting.go
  */
 package biz
@@ -240,7 +240,7 @@ func (m *MeetingUsecase) EndFlowItem(ctx context.Context, meetingId string, flow
 			if item.NodeInfo.NodeType != domain.NT_Output && item.NodeInfo.NodeType != domain.NT_Input {
 				// 非output类型节点都归为过程
 				overview += fmt.Sprintf("## %s\n%s\n\n", item.NodeInfo.NodeName, meetingDataItem.Output)
-			} else {
+			} else if item.NodeInfo.NodeType == domain.NT_Output {
 				conclusion += fmt.Sprintf("## %s\n%s\n\n", item.NodeInfo.NodeName, meetingDataItem.Output)
 			}
 		}
@@ -922,12 +922,14 @@ func (m *MeetingUsecase) Discuss(ctx http.Context, meetingFlowItem *domain.Meeti
 	curMember := domain.Member{}
 	otherMember := ""
 	nodeInfo := flowItem.NodeInfo
-	for index, member := range nodeInfo.MemberList {
+	otherMemberIndex := 1
+	for _, member := range nodeInfo.MemberList {
 		if member.MemberId == memberId {
 			characters = member.Description
 			curMember = member
 		} else {
-			otherMember += fmt.Sprintf("%d. 名称：%s 特点：%s\n", index+1, member.MemberName, member.Description)
+			otherMember += fmt.Sprintf("%d. 名称：%s 特点：%s\n", otherMemberIndex, member.MemberName, member.Description)
+			otherMemberIndex += 1
 		}
 	}
 	if characters == "" {
@@ -938,16 +940,20 @@ func (m *MeetingUsecase) Discuss(ctx http.Context, meetingFlowItem *domain.Meeti
 	// 当前环节
 	messages = append(messages, openai.ChatCompletionMessage{
 		Role:    openai.ChatMessageRoleSystem,
-		Content: fmt.Sprintf("当前环节是[%s], 参与本次讨论的成员如下\n%s\n以下是本环节的对话", flowItem.NodeInfo.NodeName, otherMember),
+		Content: fmt.Sprintf("当前环节是[%s], 参与本次讨论除你之外，还有以下成员：\n%s\n", flowItem.NodeInfo.NodeName, otherMember),
 	})
 	// 历史对话
-	if discussMessage, err := getDiscussMessage(meeting, flowItemId); err != nil {
+	if discussMessage, err := getDiscussMessage(meeting, flowItemId); err == nil && len(discussMessage) > 0 {
+		messages = append(messages, openai.ChatCompletionMessage{
+			Role:    openai.ChatMessageRoleSystem,
+			Content: "以下是本环节的对话",
+		})
 		messages = append(messages, discussMessage...)
 	}
-	// 人设 + 引导prompt(todo 待替换)
+	// 人设 + 引导prompt
 	messages = append(messages, openai.ChatCompletionMessage{
 		Role:    openai.ChatMessageRoleUser,
-		Content: fmt.Sprintf("你是%s, 请围绕主题、当前的议题或其他用户质问，结合先前的讨论记录进行发言。（直接回答即可）", characters),
+		Content: fmt.Sprintf("你是%s %s (你不必重复需解释你是谁，只需要按自己的特点回答即可)", characters, flowItem.NodeInfo.ProloguePrompt),
 	})
 	gptReply, err := m.gpt.ChatCompletion(ctx, messages)
 	if err != io.EOF {
@@ -1348,14 +1354,17 @@ func getDiscussMessage(meeting *domain.Meeting, flowItemId string) ([]openai.Cha
 	messages := []openai.ChatCompletionMessage{}
 	meetingDataItem := meeting.MeetingData[flowItemId]
 	chatList := meetingDataItem.Process.ChatList
-	for _, chat := range chatList {
+	for index, chat := range chatList {
+		if index == 0 { // 第一条不要，只是前端看的
+			continue
+		}
 		role := openai.ChatMessageRoleAssistant
 		if chat.Member.MemberId == "user" {
 			role = openai.ChatMessageRoleUser
 		}
 		messages = append(messages, openai.ChatCompletionMessage{
 			Role:    role,
-			Content: fmt.Sprintf("与会成员：%s\n发言内容：%s\n", chat.Member.MemberName, chat.Text),
+			Content: fmt.Sprintf("===\n与会成员：%s\n发言内容：%s\n", chat.Member.MemberName, chat.Text),
 		})
 	}
 	return messages, nil
@@ -1378,15 +1387,20 @@ func getContext(meeting *domain.Meeting, curFlowItem *domain.FlowItem, member *d
 			Content: member.Description,
 		})
 	}
+	// 背景说明
+	messages = append(messages, openai.ChatCompletionMessage{
+		Role:    openai.ChatMessageRoleSystem,
+		Content: "你正在参加一场会议（讨论会）",
+	})
 	// 2. 会议名 meetingName
 	messages = append(messages, openai.ChatCompletionMessage{
 		Role:    openai.ChatMessageRoleSystem,
-		Content: meeting.Name,
+		Content: fmt.Sprintf("会议（讨论会）名称是：%s", meeting.Name),
 	})
 	// 3. 主题&目标 topicGoal
 	messages = append(messages, openai.ChatCompletionMessage{
 		Role:    openai.ChatMessageRoleSystem,
-		Content: meeting.TopicGoal,
+		Content: fmt.Sprintf("主题和目标是：%s", meeting.TopicGoal),
 	})
 	// 4. 议程 meetingFlow
 	agenda := "会议议程表如下:\n"

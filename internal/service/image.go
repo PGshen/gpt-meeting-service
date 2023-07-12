@@ -2,7 +2,7 @@
  * @Descripttion:
  * @version:
  * @Date: 2023-05-02 14:08:03
- * @LastEditTime: 2023-07-12 00:33:02
+ * @LastEditTime: 2023-07-12 12:54:32
  */
 package service
 
@@ -58,6 +58,16 @@ func (s *ImageService) UploadFile(ctx http.Context) error {
 	// dst, err: = os.(header.Filename)
 	imgPath := "/image/" + name
 	filePath := s.conf.AssetsPath + imgPath
+	// 判断目录是否存在
+	dirPath := s.conf.AssetsPath + "/image"
+	_, err = os.Stat(dirPath)
+	if os.IsNotExist(err) {
+		err := os.MkdirAll(dirPath, os.ModePerm)
+		if err != nil {
+			s.log.Error("dir not exists")
+			return ctx.JSON(200, Resp(500, "dir not exists", nil))
+		}
+	}
 	dst, err := os.Create(filePath)
 	if err != nil {
 		s.log.Error(err.Error())

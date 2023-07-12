@@ -2,7 +2,7 @@
  * @Descripttion:
  * @version:
  * @Date: 2023-05-03 14:14:57
- * @LastEditTime: 2023-07-09 21:09:58
+ * @LastEditTime: 2023-07-12 13:22:36
  */
 package biz
 
@@ -81,7 +81,7 @@ func (mu *MeetingTemplateUsecase) Create(ctx context.Context, meeting *domain.Me
 					return false, err
 				}
 				node.Characters = &domain.Member{
-					MemberId:    role.Id.String(),
+					MemberId:    role.Id.Hex(),
 					MemberName:  role.Summary,
 					Description: role.Description,
 				}
@@ -93,7 +93,7 @@ func (mu *MeetingTemplateUsecase) Create(ctx context.Context, meeting *domain.Me
 					return false, err
 				}
 				node.AssociationCharacters = &domain.Member{
-					MemberId:    role.Id.String(),
+					MemberId:    role.Id.Hex(),
 					MemberName:  role.Summary,
 					Description: role.Description,
 				}
@@ -105,7 +105,7 @@ func (mu *MeetingTemplateUsecase) Create(ctx context.Context, meeting *domain.Me
 					return false, err
 				}
 				node.QuizCharacters = &domain.Member{
-					MemberId:    role.Id.String(),
+					MemberId:    role.Id.Hex(),
 					MemberName:  role.Summary,
 					Description: role.Description,
 				}
@@ -119,7 +119,7 @@ func (mu *MeetingTemplateUsecase) Create(ctx context.Context, meeting *domain.Me
 						return false, err
 					}
 					memberList = append(memberList, domain.Member{
-						MemberId:    role.Id.String(),
+						MemberId:    role.Id.Hex(),
 						MemberName:  role.Summary,
 						Description: role.Description,
 					})
