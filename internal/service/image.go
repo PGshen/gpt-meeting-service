@@ -2,12 +2,13 @@
  * @Descripttion:
  * @version:
  * @Date: 2023-05-02 14:08:03
- * @LastEditTime: 2023-05-02 17:09:58
+ * @LastEditTime: 2023-07-12 00:33:02
  */
 package service
 
 import (
 	"gpt-meeting-service/internal/biz"
+	"gpt-meeting-service/internal/conf"
 	"io"
 	"os"
 	"path"
@@ -19,14 +20,16 @@ import (
 )
 
 type ImageService struct {
-	iu  *biz.ImageUsecase
-	log *log.Helper
+	iu   *biz.ImageUsecase
+	conf *conf.Data
+	log  *log.Helper
 }
 
-func NewImageService(iu *biz.ImageUsecase, logger log.Logger) *ImageService {
+func NewImageService(iu *biz.ImageUsecase, conf *conf.Data, logger log.Logger) *ImageService {
 	return &ImageService{
-		iu:  iu,
-		log: log.NewHelper(logger),
+		iu:   iu,
+		conf: conf,
+		log:  log.NewHelper(logger),
 	}
 }
 
@@ -53,7 +56,9 @@ func (s *ImageService) UploadFile(ctx http.Context) error {
 	name := strconv.Itoa(int(time.Now().UnixMicro())) + ext
 	// 创建一个新的文件
 	// dst, err: = os.(header.Filename)
-	dst, err := os.Create(name)
+	imgPath := "/image/" + name
+	filePath := s.conf.AssetsPath + imgPath
+	dst, err := os.Create(filePath)
 	if err != nil {
 		s.log.Error(err.Error())
 		return ctx.JSON(200, Resp(500, err.Error(), nil))
@@ -65,13 +70,14 @@ func (s *ImageService) UploadFile(ctx http.Context) error {
 		s.log.Error(err.Error())
 		return ctx.JSON(200, Resp(500, err.Error(), nil))
 	}
-	path := s.iu.UploadImage(dst, name)
-	if err := os.Remove(name); err != nil {
-		s.log.Error(err.Error())
-	}
-	s.log.Debugf("imgPath: %s", path)
+	// imgPath := s.iu.UploadImage(dst, name)
+	// if err := os.Remove(name); err != nil {
+	// 	s.log.Error(err.Error())
+	// }
+	// 使用本地存储文件
+	s.log.Debugf("imgPath: %s", imgPath)
 	return ctx.JSON(200, Resp(200, "success", map[string]string{
-		"imageUrl": path,
+		"imageUrl": imgPath,
 	}))
 }
 

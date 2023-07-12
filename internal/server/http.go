@@ -2,7 +2,7 @@
  * @Descripttion:
  * @version:
  * @Date: 2023-04-29 22:30:30
- * @LastEditTime: 2023-07-01 21:31:01
+ * @LastEditTime: 2023-07-12 00:37:50
  */
 package server
 
@@ -10,6 +10,7 @@ import (
 	v1 "gpt-meeting-service/api/template/v1"
 	"gpt-meeting-service/internal/conf"
 	"gpt-meeting-service/internal/service"
+	nethttp "net/http"
 
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
@@ -17,7 +18,7 @@ import (
 )
 
 // NewHTTPServer new an HTTP server.
-func NewHTTPServer(c *conf.Server, roleTemplate *service.RoleTemplateService, meetingTemplate *service.MeetingTemplateService, image *service.ImageService, meeting *service.MeetingService, logger log.Logger) *http.Server {
+func NewHTTPServer(c *conf.Server, dataConf *conf.Data, roleTemplate *service.RoleTemplateService, meetingTemplate *service.MeetingTemplateService, image *service.ImageService, meeting *service.MeetingService, logger log.Logger) *http.Server {
 	var opts = []http.ServerOption{
 		http.Middleware(
 			recovery.Recovery(),
@@ -39,6 +40,8 @@ func NewHTTPServer(c *conf.Server, roleTemplate *service.RoleTemplateService, me
 	// resource api
 	resource := route.Group("/api/resource")
 	resource.POST("/uploadimage", image.UploadFile)
+	// assets
+	srv.HandlePrefix("/image", nethttp.FileServer(nethttp.Dir(dataConf.AssetsPath)))
 
 	// meeting api
 	meetingGroup := route.Group("/api/meeting")

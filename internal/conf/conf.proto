@@ -45,4 +45,5 @@ message Data {
   }
   Mongo mongo = 1;
   OpenAi openAi = 2;
+  string assetsPath = 3;
 }

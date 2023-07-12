@@ -40,3 +40,4 @@ bin/
 # other
 docker-compose/data
 docker-compose/conf
+cmd/gpt-meeting-service/assets
