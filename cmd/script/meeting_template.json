@@ -18,7 +18,7 @@
             "characters": {
               "description": "一个善于收集、整理和分析信息的专家。擅长提供有关事实、数据和背景信息，以支持决策和解决问题。",
               "memberName": "信息分析（白色）",
-              "memeberId": "ObjectID(\"64aa79973142999d8696ebbd\")"
+              "memeberId": "64aa79973142999d8696ebbd"
             },
             "nodeName": "主题\u0026目标确认",
             "nodeType": "Input",
@@ -36,12 +36,12 @@
             "associationCharacters": {
               "description": "一个具有创造力和创新思维的人。能够提供新颖的思路、解决方案和创意，并激发团队的创造力。",
               "memberName": "创造性思维（绿色）",
-              "memeberId": "ObjectID(\"64aa79ff3142999d8696ebbe\")"
+              "memeberId": "64aa79ff3142999d8696ebbe"
             },
             "characters": {
               "description": "一个客观中立，只关注于提炼和整理信息，而不陷入偏见的人。具有出色的信息整理和提炼能力，能够根据给定的要求和目标捕捉会议讨论的重点，并将其整理成清晰、简洁的形式。",
               "memberName": "信息总结（灰色）",
-              "memeberId": "ObjectID(\"64aa852f3142999d8696ebc2\")"
+              "memeberId": "64aa852f3142999d8696ebc2"
             },
             "nodeName": "快速联想",
             "nodeType": "Thinking",
@@ -49,7 +49,7 @@
             "quizCharacters": {
               "description": "一个具备洞察能力的人，擅长通过提问帮助澄清问题，能够从不同角度思考问题，并提出有针对性的问题，帮助拓展思路。",
               "memberName": "提问（橙色）",
-              "memeberId": "ObjectID(\"64aa89bc3142999d8696ebc3\")"
+              "memeberId": "64aa89bc3142999d8696ebc3"
             },
             "quizNum": 2,
             "quizPrompt": "围绕主题和目标，结合前面上下文，提出一个最相关的问题",
@@ -68,7 +68,7 @@
             "characters": {
               "description": "一个客观中立，只关注于提炼和整理信息，而不陷入偏见的人。具有出色的信息整理和提炼能力，能够根据给定的要求和目标捕捉会议讨论的重点，并将其整理成清晰、简洁的形式。",
               "memberName": "信息总结（灰色）",
-              "memeberId": "ObjectID(\"64aa852f3142999d8696ebc2\")"
+              "memeberId": "64aa852f3142999d8696ebc2"
             },
             "nodeName": "结论输出",
             "nodeType": "Output",
@@ -100,7 +100,7 @@
             "characters": {
               "description": "一个善于收集、整理和分析信息的专家。擅长提供有关事实、数据和背景信息，以支持决策和解决问题。",
               "memberName": "信息分析（白色）",
-              "memeberId": "ObjectID(\"64aa79973142999d8696ebbd\")"
+              "memeberId": "64aa79973142999d8696ebbd"
             },
             "nodeName": "输入待评估想法",
             "nodeType": "Input",
@@ -118,23 +118,23 @@
             "characters": {
               "description": "一个客观中立，只关注于提炼和整理信息，而不陷入偏见的人。具有出色的信息整理和提炼能力，能够根据给定的要求和目标捕捉会议讨论的重点，并将其整理成清晰、简洁的形式。",
               "memberName": "信息总结（灰色）",
-              "memeberId": "ObjectID(\"64aa852f3142999d8696ebc2\")"
+              "memeberId": "64aa852f3142999d8696ebc2"
             },
             "memberList": [
               {
                 "description": "一个极富情感和直觉的人。非常关注团队成员的情感和意见，能够提供真实的、直观的反馈和洞察力。",
                 "memberName": "情感直觉（红色）",
-                "memeberId": "ObjectID(\"64aa7b0d3142999d8696ebbf\")"
+                "memeberId": "64aa7b0d3142999d8696ebbf"
               },
               {
                 "description": "一个积极、乐观的人。能够看到问题的优点和积极的解决方案，并鼓励团队朝着积极的方向思考。",
                 "memberName": "积极建设（黄色）",
-                "memeberId": "ObjectID(\"64aa7ba33142999d8696ebc0\")"
+                "memeberId": "64aa7ba33142999d8696ebc0"
               },
               {
                 "description": "一个善于批判性思考的人。能够提出挑战和反对意见，以确保团队能够评估各种可能性并做出明智的决策。",
                 "memberName": "批判思维（黑色）",
-                "memeberId": "ObjectID(\"64aa7c873142999d8696ebc1\")"
+                "memeberId": "64aa7c873142999d8696ebc1"
               }
             ],
             "nodeName": "想法评估",
@@ -155,7 +155,7 @@
             "characters": {
               "description": "一个客观中立，只关注于提炼和整理信息，而不陷入偏见的人。具有出色的信息整理和提炼能力，能够根据给定的要求和目标捕捉会议讨论的重点，并将其整理成清晰、简洁的形式。",
               "memberName": "信息总结（灰色）",
-              "memeberId": "ObjectID(\"64aa852f3142999d8696ebc2\")"
+              "memeberId": "64aa852f3142999d8696ebc2"
             },
             "nodeName": "结论输出",
             "nodeType": "Output",
@@ -187,23 +187,23 @@
             "characters": {
               "description": "一个客观中立，只关注于提炼和整理信息，而不陷入偏见的人。具有出色的信息整理和提炼能力，能够根据给定的要求和目标捕捉会议讨论的重点，并将其整理成清晰、简洁的形式。",
               "memberName": "信息总结（灰色）",
-              "memeberId": "ObjectID(\"64aa852f3142999d8696ebc2\")"
+              "memeberId": "64aa852f3142999d8696ebc2"
             },
             "memberList": [
               {
                 "description": "牛顿，是古典物理学的奠基人之一，提出了万有引力定律和运动定律。作为自然哲学家、数学家和天文学家，他对光学、微积分和多个领域的研究都具有重要影响。",
                 "memberName": "艾萨克·牛顿",
-                "memeberId": "ObjectID(\"64aa9f393142999d8696ebc4\")"
+                "memeberId": "64aa9f393142999d8696ebc4"
               },
               {
                 "description": "爱因斯坦，是现代物理学的重要人物，提出了相对论和光量子假说，并为量子力学的发展做出了重要贡献。",
                 "memberName": "阿尔伯特·爱因斯坦",
-                "memeberId": "ObjectID(\"64aa9f883142999d8696ebc5\")"
+                "memeberId": "64aa9f883142999d8696ebc5"
               },
               {
                 "description": "波尔，丹麦物理学家，提出了原子结构的量子力学模型，以及有关波粒二象性的共振论原理。为理解原子核结构做出了重要贡献，并发展了量子理论中的互补性原理。",
                 "memberName": "尤尔根·尼尔斯·波尔",
-                "memeberId": "ObjectID(\"64aaa07c3142999d8696ebc7\")"
+                "memeberId": "64aaa07c3142999d8696ebc7"
               }
             ],
             "nodeName": "一起对话",
@@ -224,7 +224,7 @@
             "characters": {
               "description": "一个善于收集、整理和分析信息的专家。擅长提供有关事实、数据和背景信息，以支持决策和解决问题。",
               "memberName": "信息分析（白色）",
-              "memeberId": "ObjectID(\"64aa79973142999d8696ebbd\")"
+              "memeberId": "64aa79973142999d8696ebbd"
             },
             "nodeName": "主题确认",
             "nodeType": "Input",
@@ -242,7 +242,7 @@
             "characters": {
               "description": "一个客观中立，只关注于提炼和整理信息，而不陷入偏见的人。具有出色的信息整理和提炼能力，能够根据给定的要求和目标捕捉会议讨论的重点，并将其整理成清晰、简洁的形式。",
               "memberName": "信息总结（灰色）",
-              "memeberId": "ObjectID(\"64aa852f3142999d8696ebc2\")"
+              "memeberId": "64aa852f3142999d8696ebc2"
             },
             "nodeName": "对话结论",
             "nodeType": "Output",
@@ -274,7 +274,7 @@
             "characters": {
               "description": "一个具有创造力和创新思维的人。能够提供新颖的思路、解决方案和创意，并激发团队的创造力。",
               "memberName": "创造性思维（绿色）",
-              "memeberId": "ObjectID(\"64aa79ff3142999d8696ebbe\")"
+              "memeberId": "64aa79ff3142999d8696ebbe"
             },
             "nodeName": "出主意",
             "nodeType": "Processing",
@@ -290,7 +290,7 @@
             "characters": {
               "description": "一个善于收集、整理和分析信息的专家。擅长提供有关事实、数据和背景信息，以支持决策和解决问题。",
               "memberName": "信息分析（白色）",
-              "memeberId": "ObjectID(\"64aa79973142999d8696ebbd\")"
+              "memeberId": "64aa79973142999d8696ebbd"
             },
             "nodeName": "背景\u0026问题确认",
             "nodeType": "Input",

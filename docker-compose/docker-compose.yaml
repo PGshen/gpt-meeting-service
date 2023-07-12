@@ -2,7 +2,7 @@ version: '3'
 services:
   gpt-meeting-service:
     container_name: service
-    image: gpt-meeting-service:v1
+    image: pipiya/gpt-meeting-service:v1
     ports:
       - 8000:8000
     volumes:
@@ -12,9 +12,9 @@ services:
     networks:
       - meeting-network
 
-  meeting-web:
+  gpt-meeting-web:
     container_name: web
-    image: meeting-web:v1
+    image: pipiya/gpt-meeting-web:v1
     ports:
       - 8080:8080
     depends_on:

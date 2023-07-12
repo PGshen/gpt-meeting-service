@@ -7,7 +7,7 @@ server:
     timeout: 1s
 data:
   mongo:
-    host: 115.159.127.179:27017
+    host: mongodb:27017
     username: root
     password: passwd
     max_pool_size: 20
