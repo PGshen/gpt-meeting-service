@@ -2,12 +2,13 @@
  * @Descripttion:
  * @version:
  * @Date: 2023-05-02 14:56:55
- * @LastEditTime: 2023-05-02 16:54:29
+ * @LastEditTime: 2023-07-15 11:56:10
  */
 package biz
 
 import (
 	"context"
+	"gpt-meeting-service/internal/conf"
 	"net/http"
 	"net/url"
 	"os"
@@ -17,23 +18,25 @@ import (
 )
 
 type ImageUsecase struct {
-	log *log.Helper
+	conf *conf.Data
+	log  *log.Helper
 }
 
-func NewImageUsecase(logger log.Logger) *ImageUsecase {
+func NewImageUsecase(conf *conf.Data, logger log.Logger) *ImageUsecase {
 	return &ImageUsecase{
-		log: log.NewHelper(logger),
+		conf: conf,
+		log:  log.NewHelper(logger),
 	}
 }
 
 func (i *ImageUsecase) UploadImage(fd *os.File, name string) string {
 
-	u, _ := url.Parse("https://image-1252487584.cos.ap-nanjing.myqcloud.com")
+	u, _ := url.Parse(i.conf.TxCos.Url)
 	b := &cos.BaseURL{BucketURL: u}
 	c := cos.NewClient(b, &http.Client{
 		Transport: &cos.AuthorizationTransport{
-			SecretID:  "AKIDndyCJH77472rVzbTD4wumjq8Sgx76t8D", // 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
-			SecretKey: "74qVErIbkmdNzW5Xout07923wgho2FOm",     // 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
+			SecretID:  i.conf.TxCos.SecretId,  // 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
+			SecretKey: i.conf.TxCos.SecretKey, // 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
 		},
 	})
 	path := "meeting/" + name

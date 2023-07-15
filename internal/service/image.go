@@ -2,7 +2,7 @@
  * @Descripttion:
  * @version:
  * @Date: 2023-05-02 14:08:03
- * @LastEditTime: 2023-07-12 12:54:32
+ * @LastEditTime: 2023-07-15 11:40:32
  */
 package service
 
@@ -56,17 +56,23 @@ func (s *ImageService) UploadFile(ctx http.Context) error {
 	name := strconv.Itoa(int(time.Now().UnixMicro())) + ext
 	// 创建一个新的文件
 	// dst, err: = os.(header.Filename)
-	imgPath := "/image/" + name
-	filePath := s.conf.AssetsPath + imgPath
-	// 判断目录是否存在
-	dirPath := s.conf.AssetsPath + "/image"
-	_, err = os.Stat(dirPath)
-	if os.IsNotExist(err) {
-		err := os.MkdirAll(dirPath, os.ModePerm)
-		if err != nil {
-			s.log.Error("dir not exists")
-			return ctx.JSON(200, Resp(500, "dir not exists", nil))
+	filePath := ""
+	imgPath := ""
+	if s.conf.AssetsPath != "" { // 不为空，表示使用本次存储
+		imgPath = "/image/" + name
+		filePath = s.conf.AssetsPath + imgPath
+		// 判断目录是否存在
+		dirPath := s.conf.AssetsPath + "/image"
+		_, err = os.Stat(dirPath)
+		if os.IsNotExist(err) {
+			err := os.MkdirAll(dirPath, os.ModePerm)
+			if err != nil {
+				s.log.Error("dir not exists")
+				return ctx.JSON(200, Resp(500, "dir not exists", nil))
+			}
 		}
+	} else {
+		filePath = name
 	}
 	dst, err := os.Create(filePath)
 	if err != nil {
@@ -80,10 +86,12 @@ func (s *ImageService) UploadFile(ctx http.Context) error {
 		s.log.Error(err.Error())
 		return ctx.JSON(200, Resp(500, err.Error(), nil))
 	}
-	// imgPath := s.iu.UploadImage(dst, name)
-	// if err := os.Remove(name); err != nil {
-	// 	s.log.Error(err.Error())
-	// }
+	if s.conf.AssetsPath == "" { // 非本地存储，使用对象存储
+		imgPath = s.iu.UploadImage(dst, name)
+		if err := os.Remove(name); err != nil {
+			s.log.Error(err.Error())
+		}
+	}
 	// 使用本地存储文件
 	s.log.Debugf("imgPath: %s", imgPath)
 	return ctx.JSON(200, Resp(200, "success", map[string]string{

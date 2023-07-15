@@ -43,7 +43,15 @@ message Data {
     float temperature = 4;
     float presencePenalty = 5;
   }
+
+  message TxCos {
+    string url = 1;
+    string secretId = 2;
+    string secretKey = 3;
+  }
+
   Mongo mongo = 1;
   OpenAi openAi = 2;
   string assetsPath = 3;
+  TxCos txCos = 4;
 }

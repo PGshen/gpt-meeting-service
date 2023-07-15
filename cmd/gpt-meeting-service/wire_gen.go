@@ -36,7 +36,7 @@ func wireApp(confServer *conf.Server, confData *conf.Data, logger log.Logger) (*
 	meetingTemplateRepo := data.NewMeetingTemplateRepo(dataData, logger)
 	meetingTemplateUsecase := biz.NewMeetingTemplateUsecase(meetingTemplateRepo, roleTemplateRepo, logger)
 	meetingTemplateService := service.NewMeetingTemplateService(meetingTemplateUsecase, logger)
-	imageUsecase := biz.NewImageUsecase(logger)
+	imageUsecase := biz.NewImageUsecase(confData, logger)
 	imageService := service.NewImageService(imageUsecase, confData, logger)
 	meetingRepo := data.NewMeetingRepo(dataData, logger)
 	gpt := biz.NewGpt(confData, logger)

@@ -73,6 +73,13 @@ func main() {
 		zap.AddCallerSkip(2),
 		zap.Development(),
 	)
+	// logger := log.With(log.NewStdLogger(os.Stdout),
+	// 	"ts", log.DefaultTimestamp,
+	// 	"caller", log.DefaultCaller,
+	// 	"service.id", id,
+	// 	"service.name", Name,
+	// 	"service.version", Version,
+	// )
 	c := config.New(
 		config.WithSource(
 			file.NewSource(flagconf),

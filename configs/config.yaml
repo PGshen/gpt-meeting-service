@@ -19,4 +19,10 @@ data:
     model: gpt-3.5-turbo-16k-0613
     temperature: 0
     presencePenalty: 0
+  # 本次存储
   assetsPath: assets
+  # 腾讯cos存储
+  txCos:
+    url: 
+    secretId: 
+    secretKey: 
