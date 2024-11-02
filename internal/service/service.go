@@ -13,7 +13,7 @@ import (
 )
 
 // ProviderSet is service providers.
-var ProviderSet = wire.NewSet(NewRoleTemplateService, NewMeetingTemplateService, NewImageService, NewMeetingService)
+var ProviderSet = wire.NewSet(NewRoleTemplateService, NewMeetingTemplateService, NewFileService, NewMeetingService, NewDifyService)
 
 // todo 暂时简单处理，后续在完善code状态
 func RespBool(ok bool, err error) (*pb.BoolReply, error) {
