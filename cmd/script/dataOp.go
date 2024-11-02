@@ -29,7 +29,7 @@ func main() {
 	sourcePasswd := "passwd"
 
 	// 设置目标 MongoDB 实例的连接信息
-	destinationURI := "mongodb://0.0.0.0:27017"
+	destinationURI := "mongodb://52.79.227.133:27017"
 	destinationDatabase := "meeting"
 	destinationUsername := "root"
 	destinationPasswd := "passwd"

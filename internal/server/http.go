@@ -18,7 +18,7 @@ import (
 )
 
 // NewHTTPServer new an HTTP server.
-func NewHTTPServer(c *conf.Server, dataConf *conf.Data, roleTemplate *service.RoleTemplateService, meetingTemplate *service.MeetingTemplateService, image *service.ImageService, meeting *service.MeetingService, logger log.Logger) *http.Server {
+func NewHTTPServer(c *conf.Server, dataConf *conf.Data, roleTemplate *service.RoleTemplateService, meetingTemplate *service.MeetingTemplateService, file *service.FileService, meeting *service.MeetingService, dify *service.DifyService, logger log.Logger) *http.Server {
 	var opts = []http.ServerOption{
 		http.Middleware(
 			recovery.Recovery(),
@@ -39,9 +39,11 @@ func NewHTTPServer(c *conf.Server, dataConf *conf.Data, roleTemplate *service.Ro
 	route := srv.Route("/")
 	// resource api
 	resource := route.Group("/api/resource")
-	resource.POST("/uploadimage", image.UploadFile)
+	resource.POST("/uploadimage", file.UploadImage)
+	resource.POST("/uploadyml", file.UploadYml)
 	// assets
 	srv.HandlePrefix("/image", nethttp.FileServer(nethttp.Dir(dataConf.AssetsPath)))
+	srv.HandlePrefix("/yml", nethttp.FileServer(nethttp.Dir(dataConf.AssetsPath)))
 
 	// meeting api
 	meetingGroup := route.Group("/api/meeting")
@@ -69,6 +71,13 @@ func NewHTTPServer(c *conf.Server, dataConf *conf.Data, roleTemplate *service.Ro
 	meetingGroup.POST("/output", meeting.Output)
 	meetingGroup.POST("/chat", meeting.Chat)
 	meetingGroup.OPTIONS("/{meeting}", meeting.MeetingOptions)
+
+	difyGroup := route.Group("/api/dify")
+	difyGroup.POST("/search", dify.Search)
+	difyGroup.POST("/share", dify.Share)
+	difyGroup.POST("/like", dify.IncrLike)
+	difyGroup.POST("/dislike", dify.IncrDislike)
+	difyGroup.POST("/download", dify.IncrDownload)
 
 	return srv
 }

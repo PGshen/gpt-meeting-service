@@ -17,19 +17,19 @@ import (
 	"github.com/tencentyun/cos-go-sdk-v5"
 )
 
-type ImageUsecase struct {
+type FileUsecase struct {
 	conf *conf.Data
 	log  *log.Helper
 }
 
-func NewImageUsecase(conf *conf.Data, logger log.Logger) *ImageUsecase {
-	return &ImageUsecase{
+func NewFileUsecase(conf *conf.Data, logger log.Logger) *FileUsecase {
+	return &FileUsecase{
 		conf: conf,
 		log:  log.NewHelper(logger),
 	}
 }
 
-func (i *ImageUsecase) UploadImage(fd *os.File, name string) string {
+func (i *FileUsecase) UploadFile(fd *os.File, name string) string {
 
 	u, _ := url.Parse(i.conf.TxCos.Url)
 	b := &cos.BaseURL{BucketURL: u}
@@ -43,7 +43,7 @@ func (i *ImageUsecase) UploadImage(fd *os.File, name string) string {
 
 	_, err := c.Object.PutFromFile(context.Background(), path, name, nil)
 	if err != nil {
-		i.log.Errorf("failed upload image. " + err.Error())
+		i.log.Errorf("failed upload file. " + err.Error())
 	}
 	return c.Object.GetObjectURL(path).String()
 }
