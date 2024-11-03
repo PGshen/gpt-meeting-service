@@ -11,6 +11,7 @@ import (
 	"gpt-meeting-service/internal/conf"
 	"gpt-meeting-service/internal/service"
 	nethttp "net/http"
+	"strings"
 
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
@@ -42,8 +43,8 @@ func NewHTTPServer(c *conf.Server, dataConf *conf.Data, roleTemplate *service.Ro
 	resource.POST("/uploadimage", file.UploadImage)
 	resource.POST("/uploadyml", file.UploadYml)
 	// assets
-	srv.HandlePrefix("/image", nethttp.FileServer(nethttp.Dir(dataConf.AssetsPath)))
-	srv.HandlePrefix("/yml", nethttp.FileServer(nethttp.Dir(dataConf.AssetsPath)))
+	srv.HandlePrefix("/image", noListingHandler(nethttp.FileServer(nethttp.Dir(dataConf.AssetsPath))))
+	srv.HandlePrefix("/yml", noListingHandler(nethttp.FileServer(nethttp.Dir(dataConf.AssetsPath))))
 
 	// meeting api
 	meetingGroup := route.Group("/api/meeting")
@@ -80,4 +81,14 @@ func NewHTTPServer(c *conf.Server, dataConf *conf.Data, roleTemplate *service.Ro
 	difyGroup.POST("/download", dify.IncrDownload)
 
 	return srv
+}
+
+func noListingHandler(h nethttp.Handler) nethttp.Handler {
+	return nethttp.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if strings.HasSuffix(r.URL.Path, "/") {
+			nethttp.NotFound(w, r)
+			return
+		}
+		h.ServeHTTP(w, r)
+	})
 }
