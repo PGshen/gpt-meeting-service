@@ -21,5 +21,6 @@ WORKDIR /app
 EXPOSE 8000
 EXPOSE 9000
 VOLUME /data/conf
+VOLUME /app/assets
 
 CMD ["./gpt-meeting-service", "-conf", "/data/conf"]

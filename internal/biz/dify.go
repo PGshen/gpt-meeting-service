@@ -133,9 +133,9 @@ func (d *DifyUsecase) IncrDislike(ctx http.Context, difyId string) (*domain.Dify
 	dislikeIps = utils.RemoveDuplicate(dislikeIps)
 	dislikeCnt := len(dislikeIps)
 	uParam := &domain.Dify{
-		Id:      difyId,
-		LikeCnt: int64(dislikeCnt),
-		LikeIps: dislikeIps,
+		Id:         difyId,
+		DislikeCnt: int64(dislikeCnt),
+		DislikeIps: dislikeIps,
 	}
 	err = d.difyRepo.Update(ctx, uParam)
 	if err != nil {
